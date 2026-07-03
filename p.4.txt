@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects & Impact | Hope Foundation NGO</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        :root {
+            --primary-teal: #005f60;
+            --light-teal: #e6f2f2;
+            --dark-surface: #212529;
+        }
+
+        body {
+            background-color: #fcfdfe;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            perspective: 1000px;
+            overflow-x: hidden;
+        }
+
+        .bg-teal {
+            background-color: var(--primary-teal) !important;
+            color: white;
+        }
+
+        .text-teal {
+            color: var(--primary-teal);
+        }
+
+        .btn-teal {
+            background-color: var(--primary-teal);
+            color: white;
+            border: 1px solid var(--primary-teal);
+            transition: all 0.3s ease;
+        }
+
+        .btn-teal:hover, .btn-teal.active {
+            background-color: #004647;
+            color: white;
+            border-color: #004647;
+            box-shadow: 0 4px 10px rgba(0, 95, 96, 0.2);
+        }
+
+        /* 3D Transform Framework */
+        .card-3d-wrap {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: all 0.3s ease;
+        }
+
+        .card-3d {
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .card-3d-wrap:hover .card-3d {
+            transform: translateZ(15px) rotateX(3deg) rotateY(-3deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-3d-wrap:hover .badge {
+            transform: translateZ(30px);
+        }
+
+        .badge {
+            transition: transform 0.4s ease;
+        }
+
+        .project-image-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        footer {
+            background-color: var(--dark-surface);
+            color: rgba(255,255,255,0.7);
+            padding: 20px 0;
+            margin-top: 80px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold animate__animated animate__fadeInLeft" href="#">Hope Foundation NGO</a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        
+        <div class="text-center p-4 bg-teal rounded-top shadow-sm animate__animated animate__fadeIn">
+            <h2 class="fw-bold mb-1">Our Projects</h2>
+            <p class="mb-0 text-white-50 small">Making a difference through our initiatives</p>
+        </div>
+
+        <div class="d-flex justify-content-center bg-white border-start border-end p-3 gap-2 shadow-sm flex-wrap">
+            <button class="btn btn-teal filter-btn active" onclick="filterProjects('All', this)">All Projects</button>
+            <button class="btn btn-outline-secondary filter-btn" onclick="filterProjects('Completed', this)">Completed</button>
+            <button class="btn btn-outline-secondary filter-btn" onclick="filterProjects('In Progress', this)">In Progress</button>
+            <button class="btn btn-outline-secondary filter-btn" onclick="filterProjects('Planned', this)">Planned</button>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 p-4 bg-white border rounded-bottom shadow-sm">
+            
+            <div class="col card-3d-wrap project-card-item" data-status="Completed">
+                <div class="card h-100 card-3d bg-white shadow-sm rounded">
+                    <div class="position-relative">
+                        <div class="project-image-placeholder">
+                            <span>📷 </span>
+                        </div>
+                        <span class="position-absolute top-0 end-0 badge m-3 bg-success px-3 py-2">Completed</span>
+                    </div>
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title fw-bold text-dark mb-2">Project Title 1</h5>
+                        <p class="card-text text-muted flex-grow-1 small">Login form development and authentication system.</p>
+                        <a href="file:///C:/Users/admin/Desktop/95/a1.html" class="text-decoration-none fw-bold text-teal mt-auto small">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col card-3d-wrap project-card-item" data-status="In Progress">
+                <div class="card h-100 card-3d bg-white shadow-sm rounded">
+                    <div class="position-relative">
+                        <div class="project-image-placeholder">
+                            <span>📷 </span>
+                        </div>
+                        <span class="position-absolute top-0 end-0 badge m-3 bg-primary px-3 py-2">In Progress</span>
+                    </div>
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title fw-bold text-dark mb-2">Project Title 2</h5>
+                        <p class="card-text text-muted flex-grow-1 small">Hope Foundation website optimization and community outreach.</p>
+                        <a href="file:///C:/Users/admin/Downloads/p2.html" class="text-decoration-none fw-bold text-teal mt-auto small">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col card-3d-wrap project-card-item" data-status="Planned">
+                <div class="card h-100 card-3d bg-white shadow-sm rounded">
+                    <div class="position-relative">
+                        <div class="project-image-placeholder">
+                            <span>📷 </span>
+                        </div>
+                        <span class="position-absolute top-0 end-0 badge m-3 bg-warning text-dark px-3 py-2">Planned</span>
+                    </div>
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title fw-bold text-dark mb-2">Project Title 3</h5>
+                        <p class="card-text text-muted flex-grow-1 small">Bright Path Foundation initiative setup and fundraising campaign.</p>
+                        <a href="file:///C:/Users/admin/Downloads/Untitled-1%20(1).html" class="text-decoration-none fw-bold text-teal mt-auto small">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-5 p-4 rounded text-center shadow-sm" style="background-color: var(--light-teal);">
+            <h3 class="fw-bold text-teal mb-1">Our Impact</h3>
+            <p class="text-muted small mb-4">See how we are changing lives with your support</p>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="p-3 bg-teal rounded text-center shadow-sm">
+                        <h2 class="fw-bold mb-0">500+</h2>
+                        <p class="small text-white-50 mb-0">People Helped</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-teal rounded text-center shadow-sm">
+                        <h2 class="fw-bold mb-0">300+</h2>
+                        <p class="small text-white-50 mb-0">Volunteers Engaged</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-teal rounded text-center shadow-sm">
+                        <h2 class="fw-bold mb-0">$50,000+</h2>
+                        <p class="small text-white-50 mb-0">Funds Raised</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            &copy; 2026 Hope Foundation NGO. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // FIXED: Explicitly accept button element parameter to avoid cross-browser global event errors
+        function filterProjects(status, btnElement) {
+            
+            // Update UI filter button states cleanly
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('btn-teal', 'active');
+                btn.classList.add('btn-outline-secondary');
+            });
+            
+            // Toggle active state on clicked element
+            btnElement.classList.remove('btn-outline-secondary');
+            btnElement.classList.add('btn-teal', 'active');
+
+            // Handle card node visibility transitions dynamically
+            const cards = document.querySelectorAll('.project-card-item');
+            cards.forEach(card => {
+                const targetStatus = card.getAttribute('data-status');
+                
+                if (status === 'All' || targetStatus === status) {
+                    // FIXED: Using Bootstrap display utilities instead of raw block layout to preserve grid styling
+                    card.classList.remove('d-none');
+                    card.classList.add('animate__animated', 'animate__fadeIn');
+                } else {
+                    card.classList.add('d-none');
+                    card.classList.remove('animate__animated', 'animate__fadeIn');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
